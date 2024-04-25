@@ -1,0 +1,45 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { AngularMaterialModule } from './AngularMaterialModule';
+import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './auth-components/signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HttpClientModule} from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { LoginComponent } from './auth-components/login/login.component';
+// Importez HttpClientModule
+@NgModule({
+  declarations: [
+    AppComponent,
+    SignupComponent,
+    LoginComponent,
+    
+    
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    MatIconModule,
+    AngularMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    HttpClientModule
+  ],
+  providers: [
+    provideClientHydration(),
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch())
+   
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
